@@ -17,7 +17,7 @@ function Product({match}) {
     const dispatch = useDispatch();
     const alert = useAlert();
     const [currentPage, setCurrentPage] = useState(1);
-    const [price, setPrice] = useState([0, 2500]);
+    const [price, setPrice] = useState([0, 2500000000000000]);
     const [ratings, setRatings] = useState(0);
     const count = filterProductCount;
     const categories = [ "Laptop", "Footwear", "Bottom", "Tops", "Attire", "Camera", "SmartPhones"];
@@ -39,7 +39,8 @@ function Product({match}) {
     const setCurrentPageNo = (e) => {
         setCurrentPage(e);
     };
-
+console.log("resultPerPage" + resultPerPage);
+                            console.log("count" + count);
     return (
         <Fragment>
             {loading ? (<Loader />): (

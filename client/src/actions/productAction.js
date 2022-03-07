@@ -14,7 +14,7 @@ import { CLEAR_ERRORS, ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, ALL_PRODUCT_FAI
     } from "../constants/productConstants";
 import { UPDATE_PASSWORD_REQUEST } from "../constants/userConstants";
 
-export const getProduct = (keyword=``, page=1, price= [0, 2500], category, ratings = 0) => async(dispatch) => {
+export const getProduct = (keyword=``, page=1, price= [0, 250000000000], category, ratings = 0) => async(dispatch) => {
     try {
         dispatch({type:ALL_PRODUCT_REQUEST})
         

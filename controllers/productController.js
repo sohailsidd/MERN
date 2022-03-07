@@ -7,14 +7,13 @@ const cloudneary = require('cloudinary');
 exports.getAllProducts = catchAsyncError(async (req, res, next) => {
     const resultPerPage = 8;
     const productCount = await Product.countDocuments();
-    let apiFeatures = new ApiFeatures(Product,req.query).search().filter();
+    let apiFeatures = new ApiFeatures(Product.find(),req.query).search().filter();
     let products = await apiFeatures.query
     let filterProductCount = products.length;
-    apiFeatures = null;
-    apiFeatures = new ApiFeatures(Product,req.query).search().filter().pagination( resultPerPage );
-    products = await apiFeatures.query
+    apiFeatures = new ApiFeatures(Product.find(),req.query).search().filter().pagination(resultPerPage);
+    products = await apiFeatures.query;
     
-    res.status(200).json({
+    res.status(200).json({ 
         success: true,
         products,
         NoOFProducts : productCount,

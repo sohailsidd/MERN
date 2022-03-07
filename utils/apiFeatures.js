@@ -12,7 +12,7 @@ class ApiFeatures {
             }
         } : {};
 
-        this.query = this.query.find({...keyword})
+        this.query = this.query.find({...keyword});
         return this;
     }
 
@@ -33,7 +33,7 @@ class ApiFeatures {
     pagination(resultPerPage){
         const currentPage = Number(this.queryStr.page) || 1;
         const pageSkip = resultPerPage * ( currentPage -1 );
-
+        
         this.query = this.query.limit(resultPerPage).skip(pageSkip);
 
         return this;
